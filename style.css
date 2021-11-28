@@ -1,0 +1,102 @@
+html {
+    font-family: 'Calibri', sans-serif;
+}
+
+.jumbotron {
+    color: whitesmoke;
+    background-color: rgb(60, 60, 60);
+}
+
+.navbar {
+    background-color: rgb(60, 60, 60);
+    font-size: 12px;
+    letter-spacing: 3px;
+    border: 0px;
+}
+
+.navbar-header a,
+label,
+.navbar li a {
+    color: whitesmoke !important;
+}
+
+.navbar li a:hover {
+    color: rgb(60, 60, 60) !important;
+    background-color: whitesmoke !important;
+}
+
+.btn {
+    color: whitesmoke;
+    background-color: rgb(60, 60, 60);
+    width: 265px;
+}
+
+.btn:hover {
+    color: whitesmoke;
+    background-color: rgb(60, 60, 60);
+    width: 265px;
+}
+
+.mod {
+    width: 90px !important;
+}
+
+.container-fluid {
+    text-align: center;
+    background-color: transparent;
+    margin-top: 30px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.bg-custom {
+    color: whitesmoke;
+    background-color: rgb(60, 60, 60);
+}
+
+.bg-ft {
+    color: rgb(60, 60, 60);
+    background-color: rgb(240, 240, 240);
+}
+
+@media screen and (max-width: 768px) {
+    .col-sm-4 {
+        text-align: center;
+    }
+}
+
+.logo {
+    font-size: 200px;
+}
+
+.icon {
+    font-size: 30px;
+}
+
+.carousel-control.right,
+.carousel-control.left {
+    background-image: none;
+    color: whitesmoke;
+}
+
+.carousel-indicators li {
+    border-color: whitesmoke;
+}
+
+.carousel-indicators li.active {
+    background-color: whitesmoke;
+}
+
+.item h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    font-weight: 400;
+    font-style: italic;
+    margin: 70px 0;
+}
+
+.mng-opt {
+    color: rgb(60, 60, 60);
+}
