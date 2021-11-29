@@ -56,39 +56,10 @@
         </div>
     </nav>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12">
-                <div style="margin-top: 100px;">
-                    <h1>Xample</h1>
-                    <h5>Đăng nhập để tiếp tục</h5><br>
-                    <?php
-                    echo "<form class=\"form-inline\" action=\"signin.php\" method=\"POST\">";
-                    echo "<div class=\"input-group\">";
-                    echo "<div><input type=\"text\" class=\"form-control\" size=\"30\" placeholder=\"Email hoặc tên đăng nhập\" name=\"username\" required></div><br><br>";
-                    echo "<div><input type=\"password\" class=\"form-control\" size=\"30\" placeholder=\"Mật khẩu\" name=\"password\" required></div>";
-                    echo "</div><br><br>";
-
-                    $username = $_POST["username"];
-                    $password = $_POST["password"];
-
-                    $sql = "SELECT * FROM tbluser WHERE username ='" . $username . "' AND password = '" . $password . "'";
-                    $result = $con->query($sql);
-                    $user = $result->num_rows;
-                    
-                    echo "<input class=\"btn\" type=\"submit\" value=\"Đăng nhập\"><br><br>";
-                        
-                    if($user === 1){
-                        header("Location: managerhome.php");
-                    }
-                    ?>
-
-                    <a href="signup.php" class="text-right">Chưa có tài khoản?</a>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php
+        echo "<h1>sua</h1>";
+    ?>
+    
 </body>
 
 </html>

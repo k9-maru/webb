@@ -10,6 +10,11 @@
 </head>
 
 <body>
+    <!-- prepare -->
+    <?php
+    error_reporting(0);
+    ?>
+
     <!-- connect to db -->
     <?php
     $hostname = "localhost";
@@ -18,7 +23,6 @@
     $database = "webdatabase";
     $port = 3307;
     $con = new mysqli($hostname, $username, $password, $database, $port);
-
     if ($con->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
@@ -60,19 +64,25 @@
 
     <div class="jumbotron text-center">
         <h1>TRANG QUẢN LÝ</h1>
-        <?php
-        $un = $_POST['username'];
-        echo '<p>Xin chào ' . $un . '<p>';
-        ?>
+        <p>Xin chào</p>
     </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <a href = "addprovider.php" class = "btn">them</a>
+        </div>
+    </div>
+
+
+    <h2 class = "text-center">Hoặc sửa nhà cung cấp sẵn có</h2>
 
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="row text-center">
                 <div class="col-12">
-                    <form class="form-inline">
+                    <form class="form-inline" action="managerhome.php" method="POST">
                         <div class="input-group">
-                            <input type="text" class="form-control" size="80" placeholder="Tên nhà cung cấp" name="search">
+                            <input type="text" class="form-control" size="80" placeholder="Tên nhà cung cấp" name="name">
                             <div class="input-group-btn">
                                 <button class="btn mod" type="submit">
                                     <span class="glyphicon glyphicon-search"></span>
@@ -97,25 +107,34 @@
                 </thead>
                 <tbody>
                     <?php
-                    $sql = "SELECT * FROM tblprovider";
+                    $name = $_POST["name"];
+                    if ($name == null) {
+                        $sql = "SELECT * FROM tblprovider";
+                    } else $sql = "SELECT * FROM tblprovider p WHERE p.name LIKE '%" . $name . "%'";
+
                     $result = $con->query($sql);
 
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr>";
-                            echo "<td>".$row["id"]."</td>";
-                            echo "<td>".$row["name"]."</td>";
-                            echo "<td>".$row["address"]."</td>";
-                            echo "<td>".$row["tel"]."</td>";
-                            echo "<td>".$row["email"]."</td>";
+                            echo "<td>" . $row["id"] . "</td>";
+                            echo "<td>" . $row["name"] . "</td>";
+                            echo "<td>" . $row["address"] . "</td>";
+                            echo "<td>" . $row["tel"] . "</td>";
+                            echo "<td>" . $row["email"] . "</td>";
                             echo "<td>";
-                            echo "<input type=\"submit\" class=\"btn mod\" value=\"Sửa\">";
-                            echo "<input type=\"submit\" class=\"btn mod\" value=\"Xoá\">";
+                            // sửa
+                            echo "<form action =\"editprovider.php\">";
+                            echo "<input type=\"submit\" class=\"btn mod\" value=\"Sửa\" name = \"edit\">";
+                            echo "</form>";
+                            // xóa
+                            echo "<form action =\"deleteprovider.php\">";
+                            echo "<input type=\"submit\" class=\"btn mod\" value=\"Xoá\" name = \"delete\">";
+                            echo "</form>";
+
                             echo "</td>";
                             echo "</tr>";
                         }
-                    } else {
-                        echo "0 results";
                     }
                     ?>
                 </tbody>

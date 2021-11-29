@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
@@ -24,16 +24,15 @@
     $database = "webdatabase";
     $port = 3307;
     $con = new mysqli($hostname, $username, $password, $database, $port);
-
     if ($con->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
     ?>
 
-    <nav class="navbar navbar-fixed-top sticky-top">
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -51,41 +50,42 @@
                             <li style="background-color:rgb(60,60,60) !important;"><a href="https://bookland128.blogspot.com/">BOOKLAND</a></li>
                         </ul>
                     </li>
+                    <li><a href="" data-toggle="dropdown">CÁ NHÂN <span class="glyphicon glyphicon-chevron-down" style="font-size: 10px;"></span></a>
+                        <ul class="dropdown-menu">
+                            <li style="background-color:rgb(60,60,60) !important;"><a href="managerhome.php">QUẢN LÝ</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
+    <div class="jumbotron text-center">
+        <h1>TRANG QUẢN LÝ</h1>
+        <p>Thêm nhà cung cấp</p>
+    </div>
+
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-12">
-                <div style="margin-top: 100px;">
-                    <h1>Xample</h1>
-                    <h5>Đăng nhập để tiếp tục</h5><br>
-                    <?php
-                    echo "<form class=\"form-inline\" action=\"signin.php\" method=\"POST\">";
-                    echo "<div class=\"input-group\">";
-                    echo "<div><input type=\"text\" class=\"form-control\" size=\"30\" placeholder=\"Email hoặc tên đăng nhập\" name=\"username\" required></div><br><br>";
-                    echo "<div><input type=\"password\" class=\"form-control\" size=\"30\" placeholder=\"Mật khẩu\" name=\"password\" required></div>";
-                    echo "</div><br><br>";
+            <div class="col-8">
+                <?php
+                echo "<form class=\"form-inline\" method=\"POST\" action=\"addprovider.php\">";
+                echo "<input type=\"text\" class=\"form-control\" size=\"30\" name=\"name\" placeholder=\"Tên\" required><br><br>";
+                echo "<input type=\"text\" class=\"form-control\" size=\"30\" name=\"address\" placeholder=\"Địa chỉ\" required><br><br>";
+                echo "<input type=\"text\" class=\"form-control\" size=\"30\" name=\"tel\" placeholder=\"Điện thoại\" required><br><br>";
+                echo "<input type=\"email\" class=\"form-control\" size=\"30\" name=\"email\" placeholder=\"Email\" required><br><br>";
+                echo "<input type=\"submit\" class=\"btn\" value=\"Thêm\"><br><br>";
+                echo "</form>";
 
-                    $username = $_POST["username"];
-                    $password = $_POST["password"];
+                $name = $_POST["name"];
+                $address = $_POST["address"];
+                $tel = $_POST["tel"];
+                $email = $_POST["email"];
 
-                    $sql = "SELECT * FROM tbluser WHERE username ='" . $username . "' AND password = '" . $password . "'";
-                    $result = $con->query($sql);
-                    $user = $result->num_rows;
-                    
-                    echo "<input class=\"btn\" type=\"submit\" value=\"Đăng nhập\"><br><br>";
-                        
-                    if($user === 1){
-                        header("Location: managerhome.php");
-                    }
-                    ?>
-
-                    <a href="signup.php" class="text-right">Chưa có tài khoản?</a>
-                    </form>
-                </div>
+                $sql = "INSERT INTO tblprovider (name,address,tel,email) VALUES ('".$name."','".$address."','".$tel."','".$email."')";
+                $con->query($sql);
+                ?>
             </div>
         </div>
     </div>
