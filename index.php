@@ -161,7 +161,8 @@
         <div class="row">
             <div class="col-sm-5">
                 <h3 class="text-center">Bản Đồ</h3>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.3024241108383!2d105.78573631424445!3d20.980510994801083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135accdd8a1ad71%3A0xa2f9b16036648187!2zSOG7jWMgdmnhu4duIEPDtG5nIG5naOG7hyBCxrB1IGNow61uaCB2aeG7hW4gdGjDtG5n!5e0!3m2!1svi!2s!4v1637731311527!5m2!1svi!2s" width="400" height="250" style="border:0;" allowfullscreen="no" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.3024241108383!2d105.78573631424445!3d20.980510994801083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135accdd8a1ad71%3A0xa2f9b16036648187!2zSOG7jWMgdmnhu4duIEPDtG5nIG5naOG7hyBCxrB1IGNow61uaCB2aeG7hW4gdGjDtG5n!5e0!3m2!1svi!2s!4v1637731311527!5m2!1svi!2s"
+                    width="400" height="250" style="border:0;" allowfullscreen="no" loading="lazy"></iframe>
             </div>
             <div class="col-sm-7">
                 <h3 class="text-center">Liên Hệ Chúng Tôi</h3>
