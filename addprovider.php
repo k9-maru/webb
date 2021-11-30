@@ -1,7 +1,7 @@
 <html lang="vi">
 
 <head>
-    <title>ĐĂNG NHẬP</title>
+    <title>WEB</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -83,12 +83,24 @@
                 $tel = $_POST["tel"];
                 $email = $_POST["email"];
 
-                $sql = "INSERT INTO tblprovider (name,address,tel,email) VALUES ('".$name."','".$address."','".$tel."','".$email."')";
-                $con->query($sql);
+                if ($name != null && $address != null && $tel != null && $email != null) {
+                    $sql = "INSERT INTO tblprovider (name,address,tel,email) VALUES ('" . $name . "','" . $address . "','" . $tel . "','" . $email . "')";
+                    $con->query($sql);
+                    header("Location:managerhome.php");
+                }
                 ?>
             </div>
         </div>
     </div>
+
+    <footer class="container-fluid text-center bg-ft">
+        <div class="row">
+            <a href="#myPage">
+                <span class="glyphicon glyphicon-chevron-up "></span>
+            </a>
+            <p>Bootstrap Theme modified by <a href="https://github.com/k9-maru" style="color: orangered !important">ME</a></p>
+        </div>
+    </footer>
 </body>
 
 </html>

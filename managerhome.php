@@ -1,7 +1,7 @@
 <html lang="vi">
 
 <head>
-    <title>TRANG CHỦ</title>
+    <title>WEB</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
@@ -69,12 +69,12 @@
 
     <div class="container-fluid">
         <div class="row">
-            <a href = "addprovider.php" class = "btn">them</a>
+            <a href="addprovider.php" class="btn">Thêm một nhà cung cấp mới</a>
         </div>
     </div>
 
 
-    <h2 class = "text-center">Hoặc sửa nhà cung cấp sẵn có</h2>
+    <h2 class="text-center">Hoặc sửa nhà cung cấp sẵn có</h2>
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -82,7 +82,7 @@
                 <div class="col-12">
                     <form class="form-inline" action="managerhome.php" method="POST">
                         <div class="input-group">
-                            <input type="text" class="form-control" size="80" placeholder="Tên nhà cung cấp" name="name">
+                            <input type="text" class="form-control" size="80" placeholder="Tên nhà cung cấp" name="search_name">
                             <div class="input-group-btn">
                                 <button class="btn mod" type="submit">
                                     <span class="glyphicon glyphicon-search"></span>
@@ -107,10 +107,10 @@
                 </thead>
                 <tbody>
                     <?php
-                    $name = $_POST["name"];
+                    $search_name = $_POST["search_name"];
                     if ($name == null) {
                         $sql = "SELECT * FROM tblprovider";
-                    } else $sql = "SELECT * FROM tblprovider p WHERE p.name LIKE '%" . $name . "%'";
+                    } else $sql = "SELECT * FROM tblprovider p WHERE p.name LIKE '%" . $search_name . "%'";
 
                     $result = $con->query($sql);
 
@@ -124,11 +124,17 @@
                             echo "<td>" . $row["email"] . "</td>";
                             echo "<td>";
                             // sửa
-                            echo "<form action =\"editprovider.php\">";
+                            echo "<form action =\"editprovider.php\" method = \"POST\">";
+                            echo "<input type=\"hidden\" name = \"edit_id\" value = \"" . $row["id"] . "\">";
+                            echo "<input type=\"hidden\" name = \"edit_name\" value = \"" . $row["name"] . "\">";
+                            echo "<input type=\"hidden\" name = \"edit_address\" value = \"" . $row["address"] . "\">";
+                            echo "<input type=\"hidden\" name = \"edit_tel\" value = \"" . $row["tel"] . "\">";
+                            echo "<input type=\"hidden\" name = \"edit_email\" value = \"" . $row["email"] . "\">";
                             echo "<input type=\"submit\" class=\"btn mod\" value=\"Sửa\" name = \"edit\">";
                             echo "</form>";
                             // xóa
-                            echo "<form action =\"deleteprovider.php\">";
+                            echo "<form action =\"deleteprovider.php\" method = \"POST\">";
+                            echo "<input type=\"hidden\" name = \"del_id\" value = \"" . $row["id"] . "\">";
                             echo "<input type=\"submit\" class=\"btn mod\" value=\"Xoá\" name = \"delete\">";
                             echo "</form>";
 
@@ -141,6 +147,15 @@
             </table>
         </div>
     </div>
+
+    <footer class="container-fluid text-center bg-ft">
+        <div class="row">
+            <a href="#myPage">
+                <span class="glyphicon glyphicon-chevron-up "></span>
+            </a>
+            <p>Bootstrap Theme modified by <a href="https://github.com/k9-maru" style="color: orangered !important">ME</a></p>
+        </div>
+    </footer>
 </body>
 
 </html>

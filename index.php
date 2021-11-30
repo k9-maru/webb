@@ -1,7 +1,7 @@
 <html lang="vi">
 
 <head>
-    <title>TRANG CHỦ</title>
+    <title>WEB</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
