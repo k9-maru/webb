@@ -102,7 +102,8 @@
                         <th>Địa chỉ</th>
                         <th>Số điện thoại</th>
                         <th>Email</th>
-                        <th>Quản lý</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -122,8 +123,9 @@
                             echo "<td>" . $row["address"] . "</td>";
                             echo "<td>" . $row["tel"] . "</td>";
                             echo "<td>" . $row["email"] . "</td>";
-                            echo "<td>";
+                            
                             // sửa
+                            echo "<td>";
                             echo "<form action =\"editprovider.php\" method = \"POST\">";
                             echo "<input type=\"hidden\" name = \"edit_id\" value = \"" . $row["id"] . "\">";
                             echo "<input type=\"hidden\" name = \"edit_name\" value = \"" . $row["name"] . "\">";
@@ -132,7 +134,9 @@
                             echo "<input type=\"hidden\" name = \"edit_email\" value = \"" . $row["email"] . "\">";
                             echo "<input type=\"submit\" class=\"btn mod\" value=\"Sửa\" name = \"edit\">";
                             echo "</form>";
+                            echo "</td>";
                             // xóa
+                            echo "<td>";
                             echo "<form action =\"deleteprovider.php\" method = \"POST\">";
                             echo "<input type=\"hidden\" name = \"del_id\" value = \"" . $row["id"] . "\">";
                             echo "<input type=\"submit\" class=\"btn mod\" value=\"Xoá\" name = \"delete\">";
