@@ -1,7 +1,7 @@
 <html lang="vi">
 
 <head>
-    <title>WEB</title>
+    <title>SỬA</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -76,14 +76,16 @@
                 $edit_tel = $_POST["edit_tel"];
                 $edit_email = $_POST["edit_email"];
 
-                echo "<form class=\"form-inline\" method=\"POST\" action=\"editprovider.php\">";
-                echo "<input type= \"hidden\" name = \"sid\" value = \"" . $edit_id . "\">";
-                echo "<input type=\"text\" class=\"form-control\" size=\"30\" name=\"sname\" placeholder = \"" . $edit_name . "\" required><br><br>";
-                echo "<input type=\"text\" class=\"form-control\" size=\"30\" name=\"saddress\" placeholder = \"" . $edit_address . "\" required><br><br>";
-                echo "<input type=\"text\" class=\"form-control\" size=\"30\" name=\"stel\" placeholder = \"" . $edit_tel . "\" required><br><br>";
-                echo "<input type=\"email\" class=\"form-control\" size=\"30\" name=\"semail\" placeholder = \"" . $edit_email . "\" required><br><br>";
-                echo "<input type=\"submit\" class=\"btn\" value=\"Sửa\"><br><br>";
-                echo "</form>";
+                echo '
+                <form class="form-inline" method="POST" action="editprovider.php">
+                <input type= "hidden" name = "sid" value = "' . $edit_id . '">
+                <input type="text" class="form-control" size="30" name="sname" value = "' . $edit_name . '" required><br><br>
+                <input type="text" class="form-control" size="30" name="saddress" value = "' . $edit_address . '" required><br><br>
+                <input type="text" class="form-control" size="30" name="stel" value = "' . $edit_tel . '" required><br><br>
+                <input type="email" class="form-control" size="30" name="semail" value = "' . $edit_email . '" required><br><br>
+                <input type="submit" class="btn" value="Sửa"><br><br>
+                </form>
+                ';
 
                 $id = $_POST["sid"];
                 $name = $_POST["sname"];

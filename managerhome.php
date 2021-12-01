@@ -1,7 +1,7 @@
 <html lang="vi">
 
 <head>
-    <title>WEB</title>
+    <title>QUẢN LÝ</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
@@ -117,33 +117,34 @@
 
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
-                            echo "<tr>";
-                            echo "<td>" . $row["id"] . "</td>";
-                            echo "<td>" . $row["name"] . "</td>";
-                            echo "<td>" . $row["address"] . "</td>";
-                            echo "<td>" . $row["tel"] . "</td>";
-                            echo "<td>" . $row["email"] . "</td>";
-                            
-                            // sửa
-                            echo "<td>";
-                            echo "<form action =\"editprovider.php\" method = \"POST\">";
-                            echo "<input type=\"hidden\" name = \"edit_id\" value = \"" . $row["id"] . "\">";
-                            echo "<input type=\"hidden\" name = \"edit_name\" value = \"" . $row["name"] . "\">";
-                            echo "<input type=\"hidden\" name = \"edit_address\" value = \"" . $row["address"] . "\">";
-                            echo "<input type=\"hidden\" name = \"edit_tel\" value = \"" . $row["tel"] . "\">";
-                            echo "<input type=\"hidden\" name = \"edit_email\" value = \"" . $row["email"] . "\">";
-                            echo "<input type=\"submit\" class=\"btn mod\" value=\"Sửa\" name = \"edit\">";
-                            echo "</form>";
-                            echo "</td>";
-                            // xóa
-                            echo "<td>";
-                            echo "<form action =\"deleteprovider.php\" method = \"POST\">";
-                            echo "<input type=\"hidden\" name = \"del_id\" value = \"" . $row["id"] . "\">";
-                            echo "<input type=\"submit\" class=\"btn mod\" value=\"Xoá\" name = \"delete\">";
-                            echo "</form>";
+                            echo '
+                            <tr>
+                            <td>' . $row["id"] . '</td>
+                            <td>' . $row["name"] . '</td>
+                            <td>' . $row["address"] . '</td>
+                            <td>' . $row["tel"] . '</td>
+                            <td>' . $row["email"] . '</td>
 
-                            echo "</td>";
-                            echo "</tr>";
+                            <td>
+                            <form action ="editprovider.php" method = "POST">
+                            <input type="hidden" name = "edit_id" value = "' . $row["id"] . '">
+                            <input type="hidden" name = "edit_name" value = "' . $row["name"] . '">
+                            <input type="hidden" name = "edit_address" value = "' . $row["address"] . '">
+                            <input type="hidden" name = "edit_tel" value = "' . $row["tel"] . '">
+                            <input type="hidden" name = "edit_email" value = "' . $row["email"] . '">
+                            <input type="submit" class="btn mod" value="Sửa" name = "edit">
+                            </form>
+                            </td>
+
+                            <td>
+                            <form action ="deleteprovider.php" method = "POST">
+                            <input type="hidden" name = "del_id" value = "' . $row["id"] . '">
+                            <input type="submit" class="btn mod" value="Xoá" name = "delete">
+                            </form>
+
+                            </td>
+                            </tr>
+                            ';                            
                         }
                     }
                     ?>

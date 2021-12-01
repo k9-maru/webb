@@ -1,7 +1,7 @@
 <html lang="vi">
 
 <head>
-    <title>WEB</title>
+    <title>ĐĂNG NHẬP</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -63,11 +63,14 @@
                     <h1>Xample</h1>
                     <h5>Đăng nhập để tiếp tục</h5><br>
                     <?php
-                    echo "<form class=\"form-inline\" action=\"signin.php\" method=\"POST\">";
-                    echo "<div class=\"input-group\">";
-                    echo "<div><input type=\"text\" class=\"form-control\" size=\"30\" placeholder=\"Email hoặc tên đăng nhập\" name=\"username\" required></div><br><br>";
-                    echo "<div><input type=\"password\" class=\"form-control\" size=\"30\" placeholder=\"Mật khẩu\" name=\"password\" required></div>";
-                    echo "</div><br><br>";
+                    echo '
+                    <form class="form-inline" action="signin.php" method="POST">
+                    <div class="input-group">
+                    <div><input type="text" class="form-control" size="30" placeholder="Email hoặc tên đăng nhập" name="username" required></div><br><br>
+                    <div><input type="password" class="form-control" size="30" placeholder="Mật khẩu" name="password" required></div>
+                    </div><br><br>
+                    ';
+                    
 
                     $username = $_POST["username"];
                     $password = $_POST["password"];
@@ -76,7 +79,7 @@
                     $result = $con->query($sql);
                     $user = $result->num_rows;
                     
-                    echo "<input class=\"btn\" type=\"submit\" value=\"Đăng nhập\"><br><br>";
+                    echo '<input class="btn" type="submit" value="Đăng nhập"><br><br>';
                         
                     if($user === 1){
                         header("Location: managerhome.php");

@@ -1,7 +1,7 @@
 <html lang="vi">
 
 <head>
-    <title>WEB</title>
+    <title>THÊM</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -70,14 +70,16 @@
         <div class="row">
             <div class="col-8">
                 <?php
-                echo "<form class=\"form-inline\" method=\"POST\" action=\"addprovider.php\">";
-                echo "<input type=\"text\" class=\"form-control\" size=\"30\" name=\"name\" placeholder=\"Tên\" required><br><br>";
-                echo "<input type=\"text\" class=\"form-control\" size=\"30\" name=\"address\" placeholder=\"Địa chỉ\" required><br><br>";
-                echo "<input type=\"text\" class=\"form-control\" size=\"30\" name=\"tel\" placeholder=\"Điện thoại\" required><br><br>";
-                echo "<input type=\"email\" class=\"form-control\" size=\"30\" name=\"email\" placeholder=\"Email\" required><br><br>";
-                echo "<input type=\"submit\" class=\"btn\" value=\"Thêm\"><br><br>";
-                echo "</form>";
-
+                echo '
+                <form class="form-inline" method="POST" action="addprovider.php">
+                <input type="text" class="form-control" size="30" name="name" placeholder="Tên" required><br><br>
+                <input type="text" class="form-control" size="30" name="address" placeholder="Địa chỉ" required><br><br>
+                <input type="text" class="form-control" size="30" name="tel" placeholder="Điện thoại" required><br><br>
+                <input type="email" class="form-control" size="30" name="email" placeholder="Email" required><br><br>
+                <input type="submit" class="btn" value="Thêm"><br><br>
+                </form>
+                ';
+                
                 $name = $_POST["name"];
                 $address = $_POST["address"];
                 $tel = $_POST["tel"];
