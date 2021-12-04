@@ -10,6 +10,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
+<script>
+    function back() {
+        window.location = "managerhome.php";
+    }
+</script>
+
 <body>
     <!-- prepare -->
     <?php
@@ -83,7 +89,7 @@
                 <input type="text" class="form-control" size="30" name="saddress" value = "' . $edit_address . '" required><br><br>
                 <input type="text" class="form-control" size="30" name="stel" value = "' . $edit_tel . '" required><br><br>
                 <input type="email" class="form-control" size="30" name="semail" value = "' . $edit_email . '" required><br><br>
-                <input type="submit" class="btn" value="Sửa"><br><br>
+                <input type="submit" class="btn" value="Sửa" onclick = "back()"><br><br>
                 </form>
                 ';
 
@@ -95,11 +101,12 @@
 
                 $sql = "UPDATE tblprovider SET name = '" . $name . "', address = '" . $address . "', tel ='" . $tel . "', email = '" . $email . "' WHERE id = '" . $id . "'";
                 $con->query($sql);
-
                 ?>
             </div>
         </div>
     </div>
+
+
 
     <footer class="container-fluid text-center bg-ft">
         <div class="row">

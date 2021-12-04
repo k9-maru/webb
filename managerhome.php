@@ -67,15 +67,6 @@
         <p>Xin chào</p>
     </div>
 
-    <div class="container-fluid">
-        <div class="row">
-            <a href="addprovider.php" class="btn">Thêm một nhà cung cấp mới</a>
-        </div>
-    </div>
-
-
-    <h2 class="text-center">Hoặc sửa nhà cung cấp sẵn có</h2>
-
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="row text-center">
@@ -109,7 +100,7 @@
                 <tbody>
                     <?php
                     $search_name = $_POST["search_name"];
-                    if ($name == null) {
+                    if ($search_name == null) {
                         $sql = "SELECT * FROM tblprovider";
                     } else $sql = "SELECT * FROM tblprovider p WHERE p.name LIKE '%" . $search_name . "%'";
 
@@ -144,12 +135,15 @@
 
                             </td>
                             </tr>
-                            ';                            
+                            ';
                         }
                     }
                     ?>
                 </tbody>
             </table>
+            <div class="row text-center">
+                <a href="addprovider.php" class="btn">Thêm một nhà cung cấp mới</a>
+            </div>
         </div>
     </div>
 
